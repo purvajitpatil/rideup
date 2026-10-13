@@ -1,0 +1,26 @@
+body { margin: 0; background: #eef1f5; font-family: Arial, sans-serif; }
+.card { max-width: 420px; margin: 36px auto; background: #fff; padding: 26px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.1); box-sizing: border-box; }
+.card.wide { max-width: 720px; }
+h1 { margin: 0; font-size: 26px; }
+.sub { color: #64748b; margin: 4px 0 8px; }
+.top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+label { display: block; font-size: 13px; color: #334155; margin: 12px 0 4px; }
+input { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 15px; }
+button { margin-top: 14px; padding: 10px 16px; border: none; border-radius: 8px; background: #111; color: #fff; cursor: pointer; font-size: 14px; }
+button:disabled { background: #94a3b8; cursor: not-allowed; }
+button.small { margin: 0 0 0 8px; padding: 4px 10px; font-size: 12px; }
+button.del { background: #c0392b; }
+.error { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; padding: 8px 10px; border-radius: 8px; margin-top: 10px; font-size: 14px; }
+.ok { background: #ecfdf5; border: 1px solid #a7f3d0; padding: 12px; border-radius: 10px; margin-top: 12px; font-size: 13px; line-height: 1.6; }
+.otp { font-size: 22px; font-weight: bold; letter-spacing: 4px; }
+.suggest { list-style: none; margin: 4px 0 0; padding: 0; border: 1px solid #cbd5e1; border-radius: 8px; }
+.suggest li { padding: 8px 10px; cursor: pointer; font-size: 14px; border-bottom: 1px solid #eee; }
+.suggest li:hover { background: #f1f5f9; }
+.vehicles { display: flex; gap: 10px; margin-top: 14px; }
+.v { flex: 1; border: 2px solid #e2e8f0; border-radius: 10px; padding: 10px; display: flex; flex-direction: column; text-transform: capitalize; cursor: pointer; }
+.v.sel { border-color: #111; background: #f8fafc; }
+.v span { font-size: 18px; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 7px 6px; border-bottom: 1px solid #eee; }
+th { background: #eef1f5; }
+@media (max-width: 520px) { .card { margin: 12px; padding: 18px; } .vehicles { flex-direction: column; } }
