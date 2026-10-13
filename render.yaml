@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: rideup-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /health
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_CONNECT
+        sync: false
+      - key: CORS_ORIGIN
+        value: https://frontend-xi-ten-46.vercel.app
