@@ -12,7 +12,7 @@ const rideRoutes = require('./routes/ride.routes');
 connectToDb();
 
 const app = express();
-const origins = (process.env.CORS_ORIGIN || '').split(',').map((s) => s.trim()).filter(Boolean);
+const { origins } = require('./config');
 // Token is sent in the Authorization header, so credentials/cookies are not required cross-origin.
 app.use(cors(origins.length ? { origin: origins } : undefined));
 app.use(express.json());

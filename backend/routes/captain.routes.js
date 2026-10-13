@@ -20,6 +20,11 @@ router.post('/login', [
 ], captainController.loginCaptain);
 
 router.get('/profile', authMiddleware.authCaptain, captainController.getCaptainProfile);
+router.put('/status', authMiddleware.authCaptain, [
+  body('status').isIn(['active', 'inactive']).withMessage('Invalid status'),
+  body('location.ltd').optional().isFloat({ min: -90, max: 90 }),
+  body('location.lng').optional().isFloat({ min: -180, max: 180 }),
+], captainController.setStatus);
 router.get('/logout', authMiddleware.authCaptain, captainController.logoutCaptain);
 
 module.exports = router;

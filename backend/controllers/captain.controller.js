@@ -44,3 +44,13 @@ module.exports.logoutCaptain = async (req, res) => {
   res.clearCookie('token');
   res.status(200).json({ message: 'Logout successfully' });
 };
+
+module.exports.setStatus = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+  const update = { status: req.body.status };
+  if (req.body.location) update.location = { ltd: req.body.location.ltd, lng: req.body.location.lng };
+  await captainModel.updateOne({ _id: req.captain._id }, { $set: update });
+  const captain = await captainModel.findById(req.captain._id);
+  res.status(200).json({ captain });
+};

@@ -15,6 +15,18 @@ router.get('/get-fare', authMiddleware.authUser,
   query('destination').isString().isLength({ min: 3 }).withMessage('Invalid destination'),
   rideController.getFare);
 
+// captain actions
+router.post('/confirm', authMiddleware.authCaptain, body('rideId').isMongoId().withMessage('Invalid ride id'), rideController.confirmRide);
+router.post('/start-ride', authMiddleware.authCaptain,
+  body('rideId').isMongoId().withMessage('Invalid ride id'),
+  body('otp').isString().isLength({ min: 6, max: 6 }).withMessage('Invalid OTP'),
+  rideController.startRide);
+router.post('/end-ride', authMiddleware.authCaptain, body('rideId').isMongoId().withMessage('Invalid ride id'), rideController.endRide);
+router.get('/open', authMiddleware.authCaptain, rideController.getOpenRides);
+router.get('/active-captain', authMiddleware.authCaptain, rideController.getCaptainActiveRide);
+
+// rider actions
+router.get('/active', authMiddleware.authUser, rideController.getActiveRide);
 router.get('/', authMiddleware.authUser, rideController.listRides);
 router.get('/:id', authMiddleware.authUser, rideController.getRide);
 router.put('/:id', authMiddleware.authUser,
