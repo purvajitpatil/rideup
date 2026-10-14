@@ -25,8 +25,8 @@ export default function MapView({ pickup, destination, captain, route = [] }) {
   return (
     <MapContainer className="map" center={[19.03, 73.03]} zoom={12} zoomControl={false} attributionControl={true}>
       <TileLayer
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       />
       {route.length > 1 && <Polyline positions={route} pathOptions={{ color: "#000", weight: 5, opacity: 0.9 }} />}
       {pickup && <Marker position={[pickup.ltd, pickup.lng]} icon={ICONS.pickup} />}
