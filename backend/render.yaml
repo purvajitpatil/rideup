@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: rideup-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: DB_CONNECT
+        fromSecret: DB_CONNECT
+      - key: JWT_SECRET
+        fromSecret: JWT_SECRET
+      - key: CORS_ORIGIN
+        fromEnv: CORS_ORIGIN
+    healthCheckPath: /health
